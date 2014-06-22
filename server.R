@@ -30,17 +30,6 @@ clr<-function(value,colour){
   return (color)
 }
 
-baseplot <- function(value) {
-  color<-ifelse(value %in% c(0,1),"darkgreen",ifelse(value==2,"orange","red"))
-  colors<-clr(value,color)
-  data<-Data()
-  ggplot(data,aes(score,riskmort))+geom_bar(stat = "identity", position = "stack", colour="black",
-                                            aes(fill=score))+
-    scale_fill_manual(values = colors) +labs(x="CURB-65 score Pneumonia Severity", y="Mortality Risk (%)") +
-    theme(legend.direction="horizontal", legend.position="top") +
-    scale_color_hue("")
-  
-}
 
 
 shinyServer(
